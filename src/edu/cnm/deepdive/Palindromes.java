@@ -8,4 +8,9 @@ public class Palindromes {
             str.charAt(0) == str.charAt(str.length() - 1)
                 && testRecursive(str.substring(1, str.length() - 1)));
   }
+
+  public static boolean testDenormalized(String str) {
+    return testRecursive(str.trim().replaceAll("[\\W]+", "").toLowerCase());
+  }
+
 }
