@@ -1,7 +1,19 @@
 package edu.cnm.deepdive;
 
+/**
+ * Implements computation of palindromes. {@code testRecursive} is a recursive implementation, while
+ * {@code testIterative} is an iterative implementation. Both of these require that punctuation,
+ * whitespace, and casing also are part of the palindrome. {@code testDenormalized} allows for
+ * testing that ignores those three elements.
+ */
 public class Palindromes {
 
+  /**
+   * Tests whether the {@link String} parameter passed is a palindrome, with a recursive implementation.
+   * Requires punctuation, whitespace, and casing to also match when reversed.
+   * @param str The potential palindrome.
+   * @return A boolean value that indicates whether the string is a palindrome.
+   */
   public static boolean testRecursive(String str) {
     return (str.length() <= 1)
         || (
@@ -9,10 +21,12 @@ public class Palindromes {
                 && testRecursive(str.substring(1, str.length() - 1)));
   }
 
-  public static boolean testDenormalized(String str) {
-    return testRecursive(str.trim().replaceAll("[\\W]+", "").toLowerCase());
-  }
-
+  /**
+   * Tests whether the {@link String} parameter passed is a palindrome, with an iterative
+   * implementation. Requires punctuation, whitespace, and casing to also match when reversed.
+   * @param str The potential palindrome.
+   * @return A boolean value that indicates whether the string is a palindrome.
+   */
   public static boolean testIterative(String str) {
     boolean result = true;
     if (str.length() > 1) {
@@ -23,6 +37,16 @@ public class Palindromes {
       }
     }
     return result;
+  }
+
+  /**
+   * Tests whether the {@link String} parameter passed is a palindrome by calling testRecursive.
+   * Does not requires punctuation, whitespace, and casing to match when reversed.
+   * @param str The potential palindrome.
+   * @return A boolean value that indicates whether the string is palindrome.
+   */
+  public static boolean testDenormalized(String str) {
+    return testRecursive(str.replaceAll("[\\W_]+", "").toLowerCase());
   }
 
 }

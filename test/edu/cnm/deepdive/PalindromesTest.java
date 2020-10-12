@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Implements test methods for the methods of the {@link Palindromes} class.
+ */
 class PalindromesTest {
 
 
@@ -41,6 +44,9 @@ class PalindromesTest {
       true
   };
 
+  /**
+   * Tests the testRecursive function with arrays of input values and expected values.
+   */
   @Test
   void testRecursive() {
     for (int i = 0; i < inputValues.length - 1; i++) {
@@ -51,6 +57,9 @@ class PalindromesTest {
     }
   }
 
+  /**
+   * Tests the testDenormalized function with arrays of input values and expected values.
+   */
   @Test
   void testDenormalized() {
     for (int i = 0; i < denormInputValues.length - 1; i++) {
@@ -61,6 +70,9 @@ class PalindromesTest {
     }
   }
 
+  /**
+   * Tests the testIterative function with arrays of input values and expected values.
+   */
   @Test
   void testIterative() {
     for (int i = 0; i < inputValues.length - 1; i++) {
